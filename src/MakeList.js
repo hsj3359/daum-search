@@ -12,7 +12,7 @@ function makeList(num, title, image, path, totalView, count) {
     div.append(a);
     a = document.getElementById('url' + count);
     var img = document.createElement('img');
-    img.src = '' + image[i].replace('http', 'https');
+    img.src = '' + image[i];
     a.append(img);
     var text = '' + title[i];
     a.append(text);

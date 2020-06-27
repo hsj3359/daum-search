@@ -1,3 +1,5 @@
+const url = ["https://1boon.kakao.com/ch/trending.json", "http://1boon.kakao.com/ch/issue.json", "http://1boon.kakao.com/ch/enter.json"]
+
 function active(target) {
     var list = document.getElementsByTagName("li");
     for (var i = 0; i < list.length; i++) {
@@ -14,7 +16,6 @@ function active(target) {
 
 function makeList(num, title, image, path, totalView) {
     var list = document.getElementById("list");
-    list.innerHTML = "";
     var text = "";
     for (var i = 0; i < num; i++) {
         text += "<div class='card' style='width: 18rem;'>"
@@ -33,11 +34,24 @@ function bad(error) {
 }
 
 function moreView() {
-
+    var title = new Array();
+    var image = new Array();
+    var path = new Array();
+    var totalView = new Array();
+    var params = "?pagesize=" + 10 + "&page=" + 2;
+    fetch(url[0] + params).then(function (response) { return response.json(); }).then(function (data) {
+        for (var i = 0; i < data.data.length; i++) {
+            title.push(data.data[i].title);
+            image.push(data.data[i].coverImage);
+            path.push(data.data[i].path);
+            totalView.push(data.data[i].totalView);
+        }
+        makeList(data.data.length, title, image, path, totalView);
+    }).catch(bad);
 }
 
 function fetchUrl(index) {
-    const url = ["https://1boon.kakao.com/ch/trending.json", "http://1boon.kakao.com/ch/issue.json", "http://1boon.kakao.com/ch/enter.json"]
+
     var title = new Array();
     var image = new Array();
     var path = new Array();
@@ -51,11 +65,7 @@ function fetchUrl(index) {
             path.push(data.data[i].path);
             totalView.push(data.data[i].totalView);
         }
-        console.log(title);
-        console.log(image);
-        console.log(path);
-        console.log(totalView);
-        makeList(data.data.length, title, image, path, totalView)
+        makeList(data.data.length, title, image, path, totalView);
 
     }).catch(bad);
 

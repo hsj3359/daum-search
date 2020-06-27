@@ -1,18 +1,26 @@
-function makeList(num, title, image, path, totalView) {
-  var list = document.getElementById('list');
-  var text = '';
+function makeList(num, title, image, path, totalView, count) {
   for (var i = 0; i < num; i++) {
-    text += "<div class='card' style='width: 18rem;'>";
-    text += "<a href='https://1boon.kakao.com/" + path[i] + "'>";
-    text +=
-      "<img class='card-img-top' src='" + image[i] + "' alt='Card image cap'>";
-    text += "<div class='card-body'>";
-    text += "<h5 class='card-title'>" + title[i] + '</h5>';
-    text +=
-      "<p class='card-text' style = 'float:right;' >" + totalView[i] + '</p >';
-    text += '</div ></a></div>';
-    $('#list').append(text);
-    text = '';
+    var div = document.createElement('div');
+    div.className = 'basket';
+    div.id = 'basket' + count;
+    list.append(div);
+    div = document.getElementById('basket' + count);
+    var a = document.createElement('a');
+    a.className = 'url';
+    a.id = 'url' + count;
+    a.href = 'https://1boon.kakao.com/' + path[i];
+    div.append(a);
+    a = document.getElementById('url' + count);
+    var img = document.createElement('img');
+    img.src = '' + image[i];
+    a.append(img);
+    var text = '' + title[i];
+    a.append(text);
+    var br = document.createElement('br');
+    a.append(br);
+    var Ptext = '' + totalView[i];
+    a.append(Ptext);
+    count += 1;
   }
 }
 

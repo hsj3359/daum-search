@@ -23,9 +23,10 @@ function getPatch(url, pagesize, page) {
         path.push(data.data[i].path);
         totalView.push(data.data[i].totalView);
       }
-      makeList(data.data.length, title, image, path, totalView);
-    })
-    .catch(bad);
+      var count = (page - 1) * 20;
+      console.log('count = ' + count);
+      makeList(data.data.length, title, image, path, totalView, count);
+    });
 }
 
 export default getPatch;

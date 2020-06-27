@@ -16,10 +16,11 @@ function setContents() {
     });
   }
   //처음 로딩할때 트렌딩 설정
-  $(document).ready(function () {
+  window.onload = function () {
     var url = selectUrl(0);
+    console.log(url);
     getApi(url);
-  });
+  };
 
   //더보기
   const button = document.getElementsByTagName('button')[0];

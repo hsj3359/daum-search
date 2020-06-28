@@ -22,6 +22,8 @@ function makeList(num, title, image, path, totalView, count) {
     a.append(Ptext);
     count += 1;
   }
+  var loading = document.getElementById('loading');
+  loading.style.display = 'none';
 }
 
 export default makeList;

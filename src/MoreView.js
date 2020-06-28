@@ -9,6 +9,8 @@ function getPatch(url, pagesize, page) {
   var image = new Array();
   var path = new Array();
   var totalView = new Array();
+  var loading = document.getElementById('loading');
+  loading.style.display = 'block';
   var tampUrl = url + '?pagesize=' + pagesize + '&page=' + page;
   console.log(tampUrl);
   fetch(tampUrl)

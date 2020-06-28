@@ -11,6 +11,9 @@ function getPatch(url) {
   var totalView = new Array();
   console.log(url);
 
+  var loading = document.getElementById('loading');
+  loading.style.display = 'block';
+
   fetch(url)
     .then(function (response) {
       return response.json();

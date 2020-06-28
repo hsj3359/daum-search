@@ -8,13 +8,11 @@ function getPatch(url, pagesize, page) {
   var path = new Array();
   var totalView = new Array();
   var tampUrl = url + '?pagesize=' + pagesize + '&page=' + page;
-  console.log(tampUrl);
   fetch(tampUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data.data);
       for (var i = 0; i < data.data.length; i++) {
         title.push(data.data[i].title);
         image.push(data.data[i].coverImage);
@@ -22,7 +20,6 @@ function getPatch(url, pagesize, page) {
         totalView.push(data.data[i].totalView);
       }
       var count = (page - 1) * 20;
-      console.log('count = ' + count);
       makeList(data.data.length, title, image, path, totalView, count);
     });
 }

@@ -18,7 +18,6 @@ function setContents() {
   //처음 로딩할때 트렌딩 설정
   window.onload = function () {
     var url = selectUrl(0);
-    console.log(url);
     getApi(url);
   };
 
@@ -41,7 +40,6 @@ function active(target) {
       getApi(url);
       sectionNum = i;
       page = 2;
-      console.log(sectionNum, '페이지 넘버');
     } else {
       list[i].className = '';
     }

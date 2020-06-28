@@ -1,3 +1,5 @@
+var list = document.getElementById('contents');
+
 function makeList(num, title, image, path, totalView, count) {
   for (var i = 0; i < num; i++) {
     var div = document.createElement('div');

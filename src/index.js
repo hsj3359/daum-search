@@ -2,6 +2,7 @@ import selectUrl from './selectUrl.js';
 import getApi from './CreateData.js';
 import moreView from './MoreView.js';
 import deleteList from './deleteList.js';
+import './index.css';
 
 const list = document.getElementsByTagName('li');
 
